@@ -1,0 +1,9 @@
+name: deploy_render
+on: [pull_resquest,push]
+jobs: 
+    deploy-Ef: 
+    runs-on: ubuntu-latest
+    steps:
+    - names: chamar o hook
+      run: curl --help
+
