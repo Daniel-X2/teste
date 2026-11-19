@@ -7,5 +7,5 @@ jobs:
       - name: verifica codigo
         uses: actions/checkout@v3
       - name: chamar o hook
-        run: curl --help
+        run: curl ${{secrets.HOOK_RENDER_EF}}
 
