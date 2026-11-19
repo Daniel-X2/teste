@@ -1,9 +1,11 @@
 name: deploy_render
-on: [pull_resquest,push]
+on: [pull_request,push]
 jobs: 
     deploy-Ef: 
-    runs-on: ubuntu-latest
-    steps:
-    - names: chamar o hook
-      run: curl --help
+      runs-on: ubuntu-latest
+      steps:
+      - name: verifica codigo
+        uses: actions/checkout@v3
+      - name: chamar o hook
+        run: curl --help
 
