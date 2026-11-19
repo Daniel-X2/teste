@@ -37,5 +37,5 @@ jobs:
       - name: verifica codigo
         uses: actions/checkout@v3
       - name: chamar o hook
-        run: curl ${{secrets.HOOK_RENDER_EF}}
+        run: sleep 2 && curl ${{secrets.HOOK_RENDER_EF}}
 

@@ -1,0 +1,31 @@
+services:
+  api:
+    build: 
+      context: ..
+      dockerfile: Dockerfile
+    image: danizura/api-gestao-dotnet:EF
+    container_name: api-gestao-dotnet
+    environment:
+      - ASPNETCORE_HTTP_PORTS=5153
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - 5153:5153
+    env_file: .env
+  postgres_db:
+    build:
+      context: ..
+      dockerfile: Dockerfile_db
+    container_name: postgres_db
+    image: danizura/postgres_a
+    env_file:
+     -  .env  
+    volumes:
+      - ./sql.sql:/docker-entrypoint-initdb.d/init.sql
+      - postgres_data:/var/lib/postgresql/18/docker
+    environment:
+      - POSTGRES_PASSWORD
+
+    ports:
+      - 5433:5432
+volumes:
+  postgres_data:
