@@ -17,7 +17,7 @@ jobs:
           with:
               username: ${{secrets.USERNAME_DOCKER}}
               password: ${{secrets.PASSWORD_DOCKER}}
-        - name: Build and push the image docker
+        - name: Build and push
           id: push
           uses: docker/build-push-action@v7
           with:
@@ -31,11 +31,5 @@ jobs:
             subject-name: index.docker.io/danizura/api-gestao-dotnet
             subject-digest: ${{ steps.push.outputs.digest }}
             push-to-registry: true
-    deploy-Ef: 
-      runs-on: ubuntu-latest
-      steps:
-      - name: verifica codigo
-        uses: actions/checkout@v3
-      - name: chamar o hook
-        run: sleep 2 && curl ${{secrets.HOOK_RENDER_EF}}
+    
 
