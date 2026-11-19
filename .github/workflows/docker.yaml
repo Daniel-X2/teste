@@ -24,7 +24,7 @@ jobs:
             context: .
             file: ./Dockerfile
             push: true
-            tags: ${{ steps.meta.outputs.tags }}
+            tags: danielx2/api-gestao:EF
         - name: Generate artifact attestation
           uses: actions/attest@v4
           with:
