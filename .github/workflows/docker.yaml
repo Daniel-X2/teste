@@ -24,7 +24,7 @@ jobs:
             context: .
             file: ./Dockerfile
             push: true
-            tags: EF
+            tags: ${{ steps.meta.outputs.tags }}
         - name: Generate artifact attestation
           uses: actions/attest@v4
           with:
