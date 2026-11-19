@@ -24,7 +24,7 @@ jobs:
             context: .
             file: ./Dockerfile
             push: true
-            tags: danielx2/api-gestao-dotnet:EF
+            tags: danizura/api-gestao-dotnet:EF
         - name: Generate artifact attestation
           uses: actions/attest@v4
           with:
